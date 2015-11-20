@@ -1,0 +1,11 @@
+.Python
+.installed.cfg
+bin
+develop-eggs
+include
+lib
+parts
+*.egg
+output.xml
+report.html
+log.html
