@@ -17,4 +17,11 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <adapter factory=".workspace.BadgeWorkspace" />
+
+  <permission
+    id="collective.badge.addBadge"
+    title="collective.badge: Add Badge"
+    />
+
 </configure>

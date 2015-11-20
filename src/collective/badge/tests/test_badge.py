@@ -22,19 +22,29 @@ class TestBadge(unittest.TestCase):
             container=self.portal,
             type='Badge',
             id='test-badge',
+            title='Test Badge',
         )
 
     def test_create_badge(self):
-        pass
-
-    def test_assign_badge_to_user(self):
-        pass
-
-    def test_remove_badge_from_user(self):
-        pass
+        self.assertTrue('test-badge' in self.portal)
+        badge = self.portal['test-badge']
+        self.assertEquals('Badge', badge.portal_type)
 
     def test_render_badge_view(self):
-        pass
+        html = self.badge()
+        self.assertTrue('Test Badge' in html)
+
+    def test_assign_badge_to_user(self):
+        badge = self.badge
+        badge.assign_to_user('user1')
+        self.assertTrue(badge.is_assigned_to_user('user1'))
+
+        badge.remove_from_user('user1')
+        self.assertFalse(badge.is_assigned_to_user('user1'))
 
     def test_badges_for_user(self):
-        pass
+        from ..api import badges_for_user
+        self.assertEquals(len(badges_for_user('user1')), 0)
+
+        self.badge.assign_to_user('user1')
+        self.assertEquals(len(badges_for_user('user1')), 1)

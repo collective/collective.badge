@@ -40,12 +40,11 @@ setup(
     install_requires=[
         'setuptools',
         'collective.workspace',
+        'plone.api',
         'Products.CMFPlone',
     ],
     extras_require={
         'test': [
-            'plone.api',
-            'plone.app.robotframework',
             'plone.app.testing',
         ],
         'develop': [
