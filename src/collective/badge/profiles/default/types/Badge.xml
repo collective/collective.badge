@@ -5,14 +5,14 @@
  <property name="description" i18n:translate="">A badge that can be assigned to members.</property>
  <property name="icon_expr"></property>
  <property name="add_view_expr">string:${folder_url}/++add++Badge</property>
- <property name="immediate_view">view</property>
+ <property name="immediate_view">badge_view</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <property name="default_view">view</property>
+ <property name="default_view">badge_view</property>
  <property name="view_methods">
-  <element value="view"/>
+  <element value="badge_view"/>
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">collective.badge.addBadge</property>

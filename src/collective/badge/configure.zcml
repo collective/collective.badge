@@ -19,6 +19,13 @@
 
   <adapter factory=".workspace.BadgeWorkspace" />
 
+  <browser:page
+    for=".interfaces.IBadge"
+    name="badge_view"
+    template="templates/badge_view.pt"
+    permission="zope2.View"
+    />
+
   <permission
     id="collective.badge.addBadge"
     title="collective.badge: Add Badge"

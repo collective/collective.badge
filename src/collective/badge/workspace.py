@@ -4,6 +4,7 @@ from collective.workspace.membership import ITeamMembership
 from collective.workspace.membership import TeamMembership
 from collective.workspace.workspace import Workspace
 from plone import api
+from plone.app.z3cform.widget import DateFieldWidget
 from plone.autoform import directives as form
 from zope import schema
 from zope.component import adapter
@@ -36,6 +37,7 @@ class IBadgeMembership(ITeamMembership):
         required=True,
         defaultFactory=date.today,
     )
+    form.widget('assigned', DateFieldWidget)
 
     assigned_by = schema.TextLine(
         title=u'Assigned By',
@@ -49,6 +51,7 @@ class IBadgeMembership(ITeamMembership):
         title=u'Expiration Date',
         required=False,
     )
+    form.widget('expires', DateFieldWidget)
 
     notes = schema.Text(
         title=u'Notes',
