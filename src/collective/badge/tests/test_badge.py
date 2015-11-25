@@ -42,6 +42,13 @@ class TestBadge(unittest.TestCase):
         badge.remove_from_user('user1')
         self.assertFalse(badge.is_assigned_to_user('user1'))
 
+    def test_list_active_users(self):
+        badge = self.badge
+        self.assertEqual(badge.list_active_users(), [])
+
+        badge.assign_to_user('user1')
+        self.assertEqual(badge.list_active_users(), ['user1'])
+
     def test_badges_for_user(self):
         from ..api import badges_for_user
         self.assertEquals(len(badges_for_user('user1')), 0)

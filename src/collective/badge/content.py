@@ -36,3 +36,15 @@ class Badge(Item):
         if m.expires and m.expires >= today:
             return False
         return True
+
+    @security.private
+    def list_active_users(self):
+        today = date.today()
+        users = []
+        for m in self.workspace:
+            if m.assigned > today:
+                continue
+            if m.expires and m.expires >= today:
+                continue
+            users.append(m.user)
+        return users
