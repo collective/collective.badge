@@ -17,6 +17,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:upgradeDepends
+      title="Move leadImage out of behaviors, since it's now in content interface"
+      description=""
+      source="0001"
+      destination="0002"
+      import_steps="typeinfo"
+      profile="collective.badge:default" />
+
   <adapter factory=".workspace.BadgeWorkspace" />
 
   <browser:page
@@ -29,6 +37,16 @@
   <permission
     id="collective.badge.addBadge"
     title="collective.badge: Add Badge"
+    />
+
+  <browser:viewlet
+    name="contentleadimage"
+    for=".interfaces.IBadge"
+    view="plone.app.layout.globals.interfaces.IViewView"
+    class="plone.app.contenttypes.behaviors.viewlets.LeadImageViewlet"
+    manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+    template="templates/leadimage-viewlet.pt"
+    permission="zope2.View"
     />
 
 </configure>

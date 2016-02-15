@@ -1,5 +1,5 @@
-from zope.interface import Interface
+from plone.app.contenttypes.behaviors.leadimage import ILeadImage
 
 
-class IBadge(Interface):
-    """Marker for badge content type."""
+class IBadge(ILeadImage):
+    """Interface for badge content type."""
