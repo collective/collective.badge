@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.0.1 (unreleased)
+1.0.1 (2017-03-04)
 ------------------
 
-- Nothing changed yet.
+- add PyPi classifiers for Plone 5.0, 5.1
+  [tkimnguyen]
 
 
 1.0 (2017-03-04)

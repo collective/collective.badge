@@ -18,6 +18,8 @@ Each badge has an image and a roster (provided using collective.workspace) which
 
 The package is developed and tested on Plone 5.
 
+An example of its use is on Plone.org, e.g. https://plone.org/profile/davisagli
+
 
 Installation
 ------------
