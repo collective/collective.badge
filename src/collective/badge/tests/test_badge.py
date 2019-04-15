@@ -29,7 +29,7 @@ class TestBadge(unittest.TestCase):
     def test_create_badge(self):
         self.assertTrue('test-badge' in self.portal)
         badge = self.portal['test-badge']
-        self.assertEquals('Badge', badge.portal_type)
+        self.assertEqual('Badge', badge.portal_type)
 
     def test_render_badge_view(self):
         html = self.badge()
@@ -52,7 +52,7 @@ class TestBadge(unittest.TestCase):
 
     def test_badges_for_user(self):
         from ..api import badges_for_user
-        self.assertEquals(len(badges_for_user('user1')), 0)
+        self.assertEqual(len(badges_for_user('user1')), 0)
 
         self.badge.assign_to_user('user1')
-        self.assertEquals(len(badges_for_user('user1')), 1)
+        self.assertEqual(len(badges_for_user('user1')), 1)

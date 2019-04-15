@@ -1,7 +1,12 @@
-import unittest2 as unittest
+import unittest
 from collective.badge.testing import COLLECTIVE_BADGE_INTEGRATION_TESTING
 from Products.CMFCore.utils import getToolByName
 
+try:
+    from Products.CMFPlone.utils import get_installer
+except ImportError:
+    # BBB for Plone 5.0 and lower.
+    get_installer = None
 
 class TestExample(unittest.TestCase):
 
@@ -10,13 +15,18 @@ class TestExample(unittest.TestCase):
     def setUp(self):
         self.app = self.layer['app']
         self.portal = self.layer['portal']
-        self.qi_tool = getToolByName(self.portal, 'portal_quickinstaller')
+        if get_installer is None:
+            self.installer = api.portal.get_tool('portal_quickinstaller')
+        else:
+            self.installer = get_installer(self.portal)
 
     def test_product_is_installed(self):
         """ Validate that our products GS profile has been run and the product
             installed
         """
         pid = 'collective.badge'
-        installed = [p['id'] for p in self.qi_tool.listInstalledProducts()]
-        self.assertTrue(pid in installed,
-                        'package appears not to have been installed')
+        if get_installer is None:
+            is_installed = self.installer.isProductInstalled(pid)
+        else:
+            is_installed = self.installer.is_product_installed(pid)
+        self.assertTrue(is_installed)
