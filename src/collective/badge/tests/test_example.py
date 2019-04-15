@@ -1,6 +1,6 @@
+import unittest2 as unittest
 from collective.badge.testing import COLLECTIVE_BADGE_INTEGRATION_TESTING
 from Products.CMFCore.utils import getToolByName
-import unittest2 as unittest
 
 
 class TestExample(unittest.TestCase):

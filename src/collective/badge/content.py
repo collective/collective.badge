@@ -1,9 +1,11 @@
+from datetime import date
+
 from AccessControl import ClassSecurityInfo
 from collective.workspace.interfaces import IWorkspace
-from datetime import date
 from ComputedAttribute import ComputedAttribute
 from plone.dexterity.content import Item
 from zope.interface import implementer
+
 from .interfaces import IBadge
 
 

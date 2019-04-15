@@ -1,7 +1,7 @@
 from datetime import date
+
 from collective.workspace.interfaces import IWorkspace
-from collective.workspace.membership import ITeamMembership
-from collective.workspace.membership import TeamMembership
+from collective.workspace.membership import ITeamMembership, TeamMembership
 from collective.workspace.workspace import Workspace
 from plone import api
 from plone.app.z3cform.widget import DateFieldWidget
@@ -9,6 +9,7 @@ from plone.autoform import directives as form
 from zope import schema
 from zope.component import adapter
 from zope.interface import implementer
+
 from .interfaces import IBadge
 
 

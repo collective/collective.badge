@@ -1,8 +1,9 @@
+import unittest
+
 from collective.badge.testing import COLLECTIVE_BADGE_INTEGRATION_TESTING
 from plone import api
-from plone.testing import z2
 from plone.app.testing import SITE_OWNER_NAME
-import unittest
+from plone.testing import z2
 
 
 class TestBadge(unittest.TestCase):
